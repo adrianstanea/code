@@ -1,0 +1,30 @@
+{
+  "name": "C++23 Learning with Clang-19 + clangd",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "dev",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "llvm-vs-code-extensions.vscode-clangd",
+        "ms-vscode.cmake-tools",
+        "vadimcn.vscode-lldb",
+        "GitHub.copilot-chat",
+        "GitHub.copilot",
+        "redhat.vscode-yaml"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "clangd.path": "/usr/bin/clangd-19",
+        "clangd.arguments": [
+          "--log=verbose",
+          "--pretty",
+          "--background-index",
+          "--compile-commands-dir=/workspace/build",
+          "--header-insertion=iwyu"
+        ]
+      }
+    }
+  },
+  "postCreateCommand": "echo '🎓 Setting up C++23 learning environment...' && mkdir -p /workspace/build && if [ ! -f /workspace/build/std.pcm ]; then echo '📚 Building C++23 std module (only when needed)...' && echo '📝 Command: clang++-19 -std=c++23 -stdlib=libc++ --precompile -o std.pcm /usr/lib/llvm-19/share/libc++/v1/std.cppm' && clang++-19 -std=c++23 -stdlib=libc++ --precompile -o /workspace/build/std.pcm /usr/lib/llvm-19/share/libc++/v1/std.cppm && echo '📝 Command: clang++-19 -std=c++23 -stdlib=libc++ -c std.pcm -o std.o' && cd /workspace/build && clang++-19 -std=c++23 -stdlib=libc++ -c std.pcm -o std.o && echo '✅ C++23 std module ready for learning!'; else echo '✅ C++23 std module already exists - skipping rebuild'; fi && echo '🏗️ Configuring CMake...' && cd /workspace && cmake -B build -S . && echo '🎯 C++23 Learning Environment Ready!'"
+}

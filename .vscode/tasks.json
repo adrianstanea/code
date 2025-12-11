@@ -1,0 +1,251 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "🏗️ Configure CMake (Learning)",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-B",
+                "build",
+                "-S",
+                ".",
+                "-DCMAKE_VERBOSE_MAKEFILE=ON"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": [],
+            "detail": "🔧 Configure CMake for C++23 learning",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "🎯 Build Current File (Direct)",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "mkdir -p ${fileDirname}/build && MODULE_FLAGS=\"-fmodule-file=std=${workspaceFolder}/build/modules/std.pcm\"; MODULE_OBJS=\"${workspaceFolder}/build/modules/std.o\"; for pcm in ${workspaceFolder}/build/modules/*.pcm; do [ \"$pcm\" != \"${workspaceFolder}/build/modules/std.pcm\" ] && [ -f \"$pcm\" ] && MODULE_NAME=$(basename \"$pcm\" .pcm) && OBJ_FILE=\"${workspaceFolder}/build/modules/$MODULE_NAME.o\" && IMPL_OBJ_FILE=\"${workspaceFolder}/build/modules/${MODULE_NAME}_impl.o\" && [ -f \"$OBJ_FILE\" ] && MODULE_FLAGS=\"$MODULE_FLAGS -fmodule-file=$MODULE_NAME=$pcm\" && MODULE_OBJS=\"$MODULE_OBJS $OBJ_FILE\" && [ -f \"$IMPL_OBJ_FILE\" ] && MODULE_OBJS=\"$MODULE_OBJS $IMPL_OBJ_FILE\"; done; clang++-19 -std=c++23 -stdlib=libc++ $MODULE_FLAGS -fprebuilt-module-path=${workspaceFolder}/build/modules -g -O0 ${file} $MODULE_OBJS -o ${fileDirname}/build/${fileBasenameNoExtension}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": [],
+            "detail": "🚀 Self-contained C++23 build (no dependencies)",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "📁 Create Build Dir",
+            "type": "shell",
+            "command": "mkdir",
+            "args": [
+                "-p",
+                "${fileDirname}/build"
+            ],
+            "group": "build",
+            // "presentation": {
+            //     "echo": false,
+            //     "reveal": "silent",
+            //     "focus": false,
+            //     "panel": "shared"
+            // },
+            "problemMatcher": [],
+            "detail": "📁 Ensure build directory exists",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "🎯 Build Current File (C++23)",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+                "--target",
+                "${fileBasenameNoExtension}",
+                "--verbose"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": [],
+            "detail": "🚀 Direct C++23 compilation (reliable)",
+            "dependsOn": [
+                "🏗️ Ensure std module",
+                "📁 Create Build Dir"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "📁 Create Build Dir",
+            "type": "shell",
+            "command": "mkdir",
+            "args": [
+                "-p",
+                "${fileDirname}/build"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "📁 Ensure build directory exists",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "🏗️ Ensure std module",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+                "--target",
+                "std_module",
+                "--verbose"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": [],
+            "detail": "📚 Auto-configure CMake and ensure C++23 std module is built",
+            "dependsOn": "🏗️ Configure CMake first",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "🏗️ Configure CMake first",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-B",
+                "build",
+                "-S",
+                ".",
+                "-DCMAKE_VERBOSE_MAKEFILE=ON"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": [],
+            "detail": "🔧 Configure CMake for C++23 learning",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "🧹 Clean Build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+                "--target",
+                "clean"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "🗑️ Clean all build artifacts",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "🎓 Show Full Commands (Learning)",
+            "type": "shell",
+            "command": "echo",
+            "args": [
+                "📚 Learning Commands:\n🔧 Configure: cmake -B build -S . -DCMAKE_VERBOSE_MAKEFILE=ON\n🏗️ Build: cmake --build build --target TARGET --verbose\n🧹 Clean: cmake --build build --target clean\n\n💡 The --verbose flag shows you the exact clang++-19 commands being run!"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "📖 Show educational information about build commands"
+        },
+        {
+            "label": "🎓 Build Current Module",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "if [[ \"${file}\" == *.cppm ]]; then echo \"🏗️ Building module interface: ${fileBasenameNoExtension}\"; mkdir -p \"${workspaceFolder}/build/modules\"; clang++-19 -std=c++23 -stdlib=libc++ -fmodule-file=std=\"${workspaceFolder}/build/modules/std.pcm\" -fprebuilt-module-path=\"${workspaceFolder}/build/modules\" --precompile \"${file}\" -o \"${workspaceFolder}/build/modules/${fileBasenameNoExtension}.pcm\"; clang++-19 -std=c++23 -stdlib=libc++ -fmodule-file=std=\"${workspaceFolder}/build/modules/std.pcm\" -fprebuilt-module-path=\"${workspaceFolder}/build/modules\" -c \"${workspaceFolder}/build/modules/${fileBasenameNoExtension}.pcm\" -o \"${workspaceFolder}/build/modules/${fileBasenameNoExtension}.o\"; IMPL_FILE=\"${fileDirname}/${fileBasenameNoExtension}.cpp\"; if [ -f \"$IMPL_FILE\" ]; then echo \"🔧 Found implementation file, compiling together...\"; clang++-19 -std=c++23 -stdlib=libc++ -fmodule-file=std=\"${workspaceFolder}/build/modules/std.pcm\" -fmodule-file=${fileBasenameNoExtension}=\"${workspaceFolder}/build/modules/${fileBasenameNoExtension}.pcm\" -fprebuilt-module-path=\"${workspaceFolder}/build/modules\" -c \"$IMPL_FILE\" -o \"${workspaceFolder}/build/modules/${fileBasenameNoExtension}_impl.o\"; else echo \"🔧 No implementation file found, compiling interface only...\"; clang++-19 -std=c++23 -stdlib=libc++ -fmodule-file=std=\"${workspaceFolder}/build/modules/std.pcm\" -fprebuilt-module-path=\"${workspaceFolder}/build/modules\" -c \"${workspaceFolder}/build/modules/${fileBasenameNoExtension}.pcm\" -o \"${workspaceFolder}/build/modules/${fileBasenameNoExtension}.o\"; fi; echo \"✅ Module ${fileBasenameNoExtension} built successfully!\"; echo \"🔧 Auto-updating .clangd config...\"; bash \"${workspaceFolder}/scripts/update-clangd-modules.sh\" \"${fileBasenameNoExtension}\"; else echo \"❌ This task is only for .cppm files\"; fi"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": [],
+            "detail": "📚 Build current .cppm file (single-file or two-file modules)",
+            "dependsOn": "🏗️ Ensure std module",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        }
+    ]
+}

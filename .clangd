@@ -1,0 +1,11 @@
+CompileFlags:
+  Add:
+    - "-fprebuilt-module-path=/workspace/build/modules"
+    - "-fmodule-file=std=/workspace/build/modules/std.pcm"
+    - "-fmodule-file=calculator=/workspace/build/modules/calculator.pcm"
+  Compiler: clang++-19
+Index:
+  Background: Build
+Diagnostics:
+  ClangTidy:
+    Add: ["modernize-*", "performance-*"]

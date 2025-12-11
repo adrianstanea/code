@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "🐛 Debug Current C++23 File",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${fileDirname}/build/${fileBasenameNoExtension}",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "🎯 Build Current File (Direct)"
+        },
+        {
+            "name": "🎓 Build Current Module",
+            "type": "lldb",
+            "request": "launch",
+            "program": "/bin/echo",
+            "args": [
+                "✅ Module '${fileBasenameNoExtension}' built successfully! Check build/modules/ for .pcm and .o files."
+            ],
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "🎓 Build Current Module",
+            "console": "integratedTerminal"
+        }
+    ]
+}
