@@ -1,0 +1,13 @@
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/workspace:cached
+    working_dir: /workspace
+    cap_add:
+      - SYS_PTRACE # Enable GDB/LLDB debugging
+    security_opt:
+      - seccomp:unconfined
+    command: [ "sleep", "infinity" ] # Keep container alive for VS Code

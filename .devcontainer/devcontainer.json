@@ -1,0 +1,44 @@
+{
+    "name": "C++ Development Container",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "dev",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-extension-pack",
+                "ms-vscode.cpptools-themes",
+                "ms-vscode.cmake-tools",
+                "twxs.cmake",
+                "ms-azuretools.vscode-docker",
+                "adam-bender.commit-message-editor",
+                "codezombiech.gitignore",
+                "mhutchie.git-graph",
+                "Gruntfuggly.todo-tree",
+                "aaron-bond.better-comments",
+                "GitHub.copilot",
+                "KylinIdeTeam.cmake-intellisence",
+                "redhat.vscode-yaml"
+            ],
+            "settings": {
+                "extensions.ignoreRecommendations": true,
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.shell.linux": "/bin/zsh",
+                // tell VSCode that you want the shell to be a login, interactive shell
+                "terminal.integrated.shellArgs.linux": [
+                    "-l",
+                    "-i"
+                ],
+                "clangd.path": "clangd",
+                "clang-format.executable": "clang-format",
+                "cmake.cmakePath": "cmake",
+                "cmake.ctestPath": "ctest",
+                "cmake.generator": "Ninja",
+                "cmake.configureOnOpen": true,
+                "lldb.executable": "/usr/bin/lldb"
+            }
+        }
+    },
+    "remoteUser": "root"
+}

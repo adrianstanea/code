@@ -1,0 +1,18 @@
+CompileFlags:
+  Add:
+    - "-std=c++23"
+    - "-Wall"
+    - "-Wextra"
+  Compiler: clang++
+
+Diagnostics:
+  ClangTidy:
+    Add: ["modernize-*", "performance-*"]
+
+  # If you are using GCC 12 (default in the container) but clangd is parsing,
+  # sometimes you need to remove GCC-specific flags that clangd doesn't understand.
+  # Remove:
+  #   - "-fno-fat-lto-objects"
+# Point clangd to your CMake build folder so it finds headers correctly
+# The VS Code CMake Tools extension usually builds into "build"
+# CompilationDatabase: build

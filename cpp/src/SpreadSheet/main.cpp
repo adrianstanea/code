@@ -60,14 +60,14 @@ int main()
     //     println("Cell1 value: {} \t {}", cell1.getString(), cell1.getValue());
     //     println("Cell2 value: {} \t {}", cell2.getString(), cell2.getValue());
 
-    //     try
-    //     {
-    //         EvenSequence seq{ 2.0, 4.0, 6.0, 8.0};
-    //         println("Even sequence values:");
-    //         seq.print();
-    //     } catch (const invalid_argument& e) {
-    //         println("Error creating EvenSequence: {}", e.what());
-    //     }
+        try
+        {
+            EvenSequence seq{ 2.0, 4.0, 6.0, 8.0};
+            println("Even sequence values:");
+            seq.print();
+        } catch (const invalid_argument& e) {
+            println("Error creating EvenSequence: {}", e.what());
+        }
 
     //     return 0;
 
@@ -85,6 +85,7 @@ int main()
         auto cell1{make_unique<SpreadSheetCell>(5.0)};
         auto cell2{make_shared<SpreadSheetCell>(6.0)};
         auto cell3 = cell2;
+        cell3->setString("7.5");
 
         println("cell1: {}", cell1->getValue());
         println("cell2: {}", cell2->getValue());

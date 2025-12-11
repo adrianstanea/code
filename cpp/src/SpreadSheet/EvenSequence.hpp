@@ -4,7 +4,7 @@
 class EvenSequence
 {
 public:
-    EvenSequence(std::initializer_list<double> values);
+   EvenSequence(std::initializer_list<double> values);
 
     void print() const;
 

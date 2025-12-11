@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/include/c++/v1"
+            ],
+            "compilerPath": "/usr/bin/clang++",
+            // "compilerArgs": [
+            //     "-std=c++2b",
+            //     "-stdlib=libc++",
+            //     "-fprebuilt-module-path=/workspace/build",
+            //     "-fmodule-file=std=/workspace/build/std.pcm"
+            // ],
+            "cStandard": "c23",
+            "cppStandard": "c++23",
+            // "intelliSenseMode": "linux-clang-x64"
+        }
+    ],
+    "version": 4
+}

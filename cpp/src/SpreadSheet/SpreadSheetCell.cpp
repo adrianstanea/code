@@ -43,7 +43,7 @@ void SpreadSheetCell::setValue(double value)
     m_value = value;
 }
 
-double SpreadSheetCell::getValue() const
+auto SpreadSheetCell::getValue() const -> double
 {
     return m_value;
 }
@@ -53,17 +53,17 @@ void SpreadSheetCell::setString(std::string_view value)
     m_value = this->stringToDouble(value);
 }
 
-std::string SpreadSheetCell::getString() const
+auto SpreadSheetCell::getString() const -> std::string
 {
     return this->doubleToString(m_value);
 }
 
-std::string SpreadSheetCell::doubleToString(double value) const
+auto SpreadSheetCell::doubleToString(double value) const -> std::string
 {
     return to_string(value);
 }
 
-double SpreadSheetCell::stringToDouble(std::string_view value) const
+auto SpreadSheetCell::stringToDouble(std::string_view value) const -> double
 {
     double number{0};
     from_chars(value.data(), value.data() + value.size(), number);
