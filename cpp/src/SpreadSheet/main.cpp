@@ -1,13 +1,12 @@
-#include <print>
-#include "SpreadSheetCell.hpp"
-#include "EvenSequence.hpp"
 #include <memory>
+#include <print>
+
+#include "EvenSequence.hpp"
+#include "SpreadSheetCell.hpp"
 
 using namespace std;
 
-int main()
-{
-
+int main() {
     //     auto cell = SpreadSheetCell{5.2};
     //     println("Initial cell value: {:.2f}", cell.getValue());
 
@@ -28,18 +27,20 @@ int main()
     //     SpreadSheetCell *p_cell{new SpreadSheetCell{1234.56}};
     //     p_cell->setString("123.456");
     //     println("Pointer cell value: {:.2f}", p_cell->getValue());
-    //     println("Pointer cell values: {} \t {}", p_cell->getValue(), p_cell->getString());
-    //     delete p_cell;
-    //     p_cell = nullptr;
+    //     println("Pointer cell values: {} \t {}", p_cell->getValue(),
+    //     p_cell->getString()); delete p_cell; p_cell = nullptr;
 
     //     println();
     //     auto p_another_cell{make_unique<SpreadSheetCell>(123)};
-    //     println("Another unique pointer cell value: {} \t {}", p_another_cell->getString(), p_another_cell->getValue());
+    //     println("Another unique pointer cell value: {} \t {}",
+    //     p_another_cell->getString(), p_another_cell->getValue());
     //     p_another_cell->setValue(987.654);
-    //     println("Another unique pointer cell value: {} \t {}", p_another_cell->getString(), p_another_cell->getValue());
+    //     println("Another unique pointer cell value: {} \t {}",
+    //     p_another_cell->getString(), p_another_cell->getValue());
 
     //     auto test_cell{make_unique<SpreadSheetCell>("test")};
-    //     println("Test cell value: {} \t {}", test_cell->getString(), test_cell->getValue());
+    //     println("Test cell value: {} \t {}", test_cell->getString(),
+    //     test_cell->getValue());
 
     //     SpreadSheetCell cells[3];
     //     // SpreadSheetCell cells[3] {
@@ -49,25 +50,27 @@ int main()
     //     // };
     //     for (const auto &cell : cells)
     //     {
-    //         println("Cell value: {} \t {}", cell.getString(), cell.getValue());
+    //         println("Cell value: {} \t {}", cell.getString(),
+    //         cell.getValue());
     //     }
 
     //     auto smart_cell_ptr{make_shared<SpreadSheetCell>()};
-    //     println("Smart cell pointer value: {} \t {}", smart_cell_ptr->getString(), smart_cell_ptr->getValue());
+    //     println("Smart cell pointer value: {} \t {}",
+    //     smart_cell_ptr->getString(), smart_cell_ptr->getValue());
 
     //     SpreadSheetCell cell1{200.0};
     //     auto cell2{cell1};
-    //     println("Cell1 value: {} \t {}", cell1.getString(), cell1.getValue());
-    //     println("Cell2 value: {} \t {}", cell2.getString(), cell2.getValue());
+    //     println("Cell1 value: {} \t {}", cell1.getString(),
+    //     cell1.getValue()); println("Cell2 value: {} \t {}",
+    //     cell2.getString(), cell2.getValue());
 
-        try
-        {
-            EvenSequence seq{ 2.0, 4.0, 6.0, 8.0};
-            println("Even sequence values:");
-            seq.print();
-        } catch (const invalid_argument& e) {
-            println("Error creating EvenSequence: {}", e.what());
-        }
+    try {
+        EvenSequence seq{2.0, 4.0, 6.0, 8.0};
+        println("Even sequence values:");
+        seq.print();
+    } catch (const invalid_argument& e) {
+        println("Error creating EvenSequence: {}", e.what());
+    }
 
     //     return 0;
 

@@ -1,1 +1,2 @@
 add_subdirectory(SpreadSheet)
+add_subdirectory(Exercises)
