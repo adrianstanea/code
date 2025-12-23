@@ -104,4 +104,7 @@
         "--pch-storage=memory",
         "--enable-config"
     ],
+    "[cpp]": {
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+    },
 }

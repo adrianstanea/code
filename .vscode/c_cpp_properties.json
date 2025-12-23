@@ -1,21 +1,28 @@
 {
     "configurations": [
         {
-            "name": "Linux",
+            "name": "Linux-Clang",
+            "compilerPath": "/usr/bin/clang++",
+            "cStandard": "c23",
+            "cppStandard": "c++23",
+            "intelliSenseMode": "linux-clang-x64",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/include/c++/v1"
+                // "/usr/include/c++/v1"
             ],
-            "compilerPath": "/usr/bin/clang++",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**",
+                    // "/usr/include/c++/v1"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            },
             // "compilerArgs": [
             //     "-std=c++2b",
             //     "-stdlib=libc++",
             //     "-fprebuilt-module-path=/workspace/build",
             //     "-fmodule-file=std=/workspace/build/std.pcm"
             // ],
-            "cStandard": "c23",
-            "cppStandard": "c++23",
-            // "intelliSenseMode": "linux-clang-x64"
         }
     ],
     "version": 4
