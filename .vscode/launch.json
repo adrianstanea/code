@@ -21,6 +21,7 @@
         //         }
         //     ]
         // },
+
         {
             "name": "(lldb) Launch",
             "type": "cppdbg",
@@ -35,6 +36,6 @@
             "MIMode": "lldb",
             "miDebuggerPath": "/usr/lib/llvm-18/bin/lldb",
             "configurations": []
-        }
+        },
     ]
 } // {

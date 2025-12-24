@@ -96,7 +96,7 @@
         "--log=verbose",
         "--pretty",
         "--background-index",
-        "--compile-commands-dir=/workspace/out/build/clang-release/compile_commands.json",
+        "--compile-commands-dir=/workspace/out/build/clang-debug/",
         "--header-insertion=iwyu",
         "--completion-style=detailed",
         "--function-arg-placeholders",
