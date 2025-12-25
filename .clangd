@@ -1,18 +1,40 @@
 CompileFlags:
-  Add:
-    - "-std=c++23"
-    - "-Wall"
-    - "-Wextra"
+  # Add:
+  # - "-std=c++23"
+  # - "-stdlib=libc++"
+  # - "-Wall"
+  # - "-Wextra"
   Compiler: clang++
 
 Diagnostics:
+  UnusedIncludes: Strict
+  MissingIncludes: Strict
   ClangTidy:
-    Add: ["modernize-*", "performance-*"]
+    Add:
+      - "abseil-*"
+      # - "altera-*"
+      - "android-*"
+      - "cert-*"
+      - "clang-analyzer-*"
+      - "cppcoreguidelines-*"
+      # - "fuchsia-*"
+      - "google-*"
+      - "llvm*"
+      - "modernize-*"
+      - "performance-*"
+      - "zircon-*"
+      - "bugprone-*"
+    Remove:
+      - "modernize-use-trailing-return-type"
+      - llvmlibc-implementation-in-namespace
+      - llvmlibc-callee-namespace
+      - llvmlibc-restrict-system-libc-headers
+      - cppcoreguidelines-avoid-magic-numbers
 
-  # If you are using GCC 12 (default in the container) but clangd is parsing,
-  # sometimes you need to remove GCC-specific flags that clangd doesn't understand.
-  # Remove:
-  #   - "-fno-fat-lto-objects"
+# If you are using GCC 12 (default in the container) but clangd is parsing,
+# sometimes you need to remove GCC-specific flags that clangd doesn't understand.
+# Remove:
+#   - "-fno-fat-lto-objects"
 # Point clangd to your CMake build folder so it finds headers correctly
 # The VS Code CMake Tools extension usually builds into "build"
 # CompilationDatabase: build
