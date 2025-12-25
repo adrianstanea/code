@@ -19,7 +19,12 @@
                 "aaron-bond.better-comments",
                 "GitHub.copilot",
                 "KylinIdeTeam.cmake-intellisence",
-                "redhat.vscode-yaml"
+                "redhat.vscode-yaml",
+                "KylinIdeTeam.kylin-clangd",
+                "donjayamanne.githistory",
+                "eamodio.gitlens",
+                "Guyutongxue.cpp-reference",
+                "cschlosser.doxdocgen"
             ],
             "settings": {
                 "extensions.ignoreRecommendations": true,
