@@ -40,5 +40,11 @@ int main(int argc, const char** argv) {
     db.outputAll();
 
     std::println("");
+
+    // TEST no-discard
+    std::println("TEST no-discard");
+    auto person{Person{"John", "Doe"}};
+    person.get_first_name();
+
     return 0;
 }
