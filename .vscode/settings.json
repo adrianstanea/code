@@ -105,6 +105,6 @@
         "--enable-config"
     ],
     "[cpp]": {
-        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+        "editor.defaultFormatter": "xaver.clang-format",
     },
 }
