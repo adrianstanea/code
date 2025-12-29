@@ -34,7 +34,7 @@
             "environment": [],
             "externalConsole": true,
             "MIMode": "lldb",
-            "miDebuggerPath": "/usr/lib/llvm-18/bin/lldb",
+            "miDebuggerPath": "/usr/lib/llvm-21/bin/lldb",
             "configurations": []
         },
     ]
