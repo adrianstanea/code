@@ -42,3 +42,6 @@
 
 **/build*/
 # **/.vscode/
+cmake/utils.cmake
+cmake/toolchains/llvm-libc++-toolchain.cmake
+cmake/toolchains/llvm-toolchain.cmake

@@ -1,8 +1,8 @@
 {
   "version": 6,
   "cmakeMinimumRequired": {
-    "major": 3,
-    "minor": 29,
+    "major": 4,
+    "minor": 2,
     "patch": 0
   },
   "configurePresets": [
@@ -13,16 +13,9 @@
       "installDir": "${sourceDir}/out/install/${presetName}",
       "generator": "Ninja",
       "cacheVariables": {
-        "CMAKE_EXPORT_COMPILE_COMMANDS": true,
-        "CMAKE_TOOLCHAIN_FILE": {
-          "value": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake",
-          "type": "FILEPATH"
-        },
-        "VCPKG_INSTALL_OPTIONS": "--x-abi-tools-use-exact-versions"
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true
       },
-      "environment": {
-        "VCPKG_FEATURE_FLAGS": "-compilertracking"
-      }
+      "environment": {}
     },
     {
       "name": "debug",
@@ -93,7 +86,8 @@
       "inherits": "linux",
       "hidden": true,
       "cacheVariables": {
-        "CMAKE_CXX_COMPILER": "clang++"
+        "CMAKE_CXX_STANDARD": "23",
+        "CMAKE_CXX_STDLIB_MODULES_JSON": "/usr/lib/llvm-21/lib/libc++.modules.json"
       }
     },
     {
@@ -110,9 +104,7 @@
         "msvc",
         "debug"
       ],
-      "cacheVariables": {
-          "VCPKG_TARGET_TRIPLET": "x64-windows"
-      }
+      "cacheVariables": {}
     },
     {
       "name": "msvc-release",
@@ -120,9 +112,7 @@
         "msvc",
         "release"
       ],
-      "cacheVariables": {
-          "VCPKG_TARGET_TRIPLET": "x64-windows-release"
-      }
+      "cacheVariables": {}
     },
     {
       "name": "clang-debug",
@@ -130,9 +120,7 @@
         "clang",
         "debug"
       ],
-      "cacheVariables": {
-          "VCPKG_TARGET_TRIPLET": "x64-linux"
-      }
+      "cacheVariables": {}
     },
     {
       "name": "clang-release",
@@ -140,9 +128,7 @@
         "clang",
         "release"
       ],
-      "cacheVariables": {
-          "VCPKG_TARGET_TRIPLET": "x64-linux-release"
-      }
+      "cacheVariables": {}
     },
     {
       "name": "gcc-debug",
@@ -150,9 +136,7 @@
         "gcc",
         "debug"
       ],
-      "cacheVariables": {
-          "VCPKG_TARGET_TRIPLET": "x64-linux"
-      }
+      "cacheVariables": {}
     },
     {
       "name": "gcc-release",
@@ -160,9 +144,7 @@
         "gcc",
         "release"
       ],
-      "cacheVariables": {
-          "VCPKG_TARGET_TRIPLET": "x64-linux-release"
-      }
+      "cacheVariables": {}
     }
   ],
   "buildPresets": [

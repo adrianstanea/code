@@ -37,6 +37,22 @@
                 "cwd": "${fileDirname}"
             },
             "problemMatcher": []
-        }
+        },
+        {
+            "type": "shell",
+            "label": "Clean CMake build directory",
+            "command": "/bin/sh",
+            "args": [
+                "-c",
+                "rm -rf out"
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "close": true
+            }
+        },
     ]
 }

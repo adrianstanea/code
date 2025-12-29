@@ -97,12 +97,16 @@
         "--pretty",
         "--background-index",
         "--compile-commands-dir=/workspace/out/build/clang-debug/",
-        "--header-insertion=iwyu",
+        "--experimental-modules-support",
+        // Not needed with module support!!
+        // "--header-insertion=iwyu",
+        "--header-insertion=never",
         "--completion-style=detailed",
         "--function-arg-placeholders",
         "--clang-tidy",
         "--pch-storage=memory",
-        "--enable-config"
+        "--enable-config",
+        // "-j=6"
     ],
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format",

@@ -1,3 +1,4 @@
 add_subdirectory(SpreadSheet)
 add_subdirectory(Examples)
 add_subdirectory(Exercises)
+add_subdirectory(Playground)

@@ -28,7 +28,8 @@
                 "ms-vscode.cpptools",
                 "redhat.vscode-yaml",
                 "twxs.cmake",
-                "xaver.clang-format"
+                "xaver.clang-format",
+                "ms-vscode.hexeditor"
             ],
             "settings": {
                 "extensions.ignoreRecommendations": true,
