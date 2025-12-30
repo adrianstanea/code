@@ -13,7 +13,8 @@
       "installDir": "${sourceDir}/out/install/${presetName}",
       "generator": "Ninja",
       "cacheVariables": {
-        "CMAKE_EXPORT_COMPILE_COMMANDS": true
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true,
+        "CMAKE_CXX_STANDARD": "23"
       },
       "environment": {}
     },
@@ -86,16 +87,21 @@
       "inherits": "linux",
       "hidden": true,
       "cacheVariables": {
-        "CMAKE_CXX_STANDARD": "23",
         "CMAKE_CXX_STDLIB_MODULES_JSON": "/usr/lib/llvm-21/lib/libc++.modules.json"
+      },
+      "environment": {
+        "CC": "/usr/bin/clang",
+        "CXX": "/usr/bin/clang++"
       }
     },
     {
       "name": "gcc",
       "inherits": "linux",
       "hidden": true,
-      "cacheVariables": {
-        "CMAKE_CXX_COMPILER": "g++"
+      "cacheVariables": {},
+      "environment": {
+        "CC": "/usr/bin/gcc",
+        "CXX": "/usr/bin/g++"
       }
     },
     {
