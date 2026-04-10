@@ -37,7 +37,7 @@ RUN apt-get update && \
     # required by VCPKG
     openssh-server tar curl unzip pkg-config bash-completion aria2 mono-complete \
     # required by LLVM
-    lsb-release zlib1g-dev \
+    lsb-release openssl zlib1g-dev \
     # shell
     zsh \
     && \

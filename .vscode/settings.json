@@ -91,7 +91,7 @@
     "C_Cpp.autocomplete": "disabled",
     "C_Cpp.errorSquiggles": "disabled",
     "// 🚀 clangd Configuration - Our primary IntelliSense engine": "",
-    "clangd.path": "clangd",
+    "clangd.path": "/usr/bin/clangd-21",
     "clangd.arguments": [
         "--log=verbose",
         "--pretty",

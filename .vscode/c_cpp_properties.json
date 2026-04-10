@@ -3,7 +3,7 @@
         {
             "name": "Linux",
             "intelliSenseMode": "linux-clang-x64",
-            "compilerPath": "/usr/bin/clang++",
+            "compilerPath": "/usr/bin/clang++-21",
             "compileCommands": "/workspace/out/build/clang-debug/compile_commands.json",
             "cStandard": "c23",
             "cppStandard": "c++23"
