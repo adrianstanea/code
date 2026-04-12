@@ -1,0 +1,40 @@
+{
+    "name": "Zephyr Dev",
+    "image": "ghcr.io/zephyrproject-rtos/zephyr-build:main",
+    "containerUser": "root",
+    "remoteUser": "root",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace/app,type=bind,consistency=cached",
+    "workspaceFolder": "/workspace",
+    "onCreateCommand": "bash -i /workspace/app/.devcontainer/onCreateCommand.sh",
+    // "containerEnv": {
+    //     "ZEPHYR_SDK_INSTALL_DIR": "/opt/toolchains/zephyr-sdk-1.0.1"
+    // },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "marus25.cortex-debug",
+                "ms-vscode.cpptools",
+                "nordic-semiconductor.nrf-devicetree",
+                "nordic-semiconductor.nrf-kconfig",
+                "mhutchie.git-graph",
+                "donjayamanne.githistory",
+                "KylinIdeTeam.cmake-intellisence",
+                "ms-vscode.cmake-tools"
+            ],
+            "settings": {
+                "cmake.configureOnOpen": false,
+                "cmake.showOptionsMovedNotification": false,
+                "C_Cpp.default.compilerPath": "/opt/toolchains/zephyr-sdk-1.0.1/gnu/x86_64-zephyr-elf/bin/x86_64-zephyr-elf-gcc",
+                "C_Cpp.default.compileCommands": "/workspace/build/compile_commands.json",
+                "git.autofetch": false
+            }
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers-extra/features/zsh-plugins:0": {
+            "plugins": "ssh-agent npm",
+            "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
+            "username": "root"
+        }
+    }
+}
