@@ -1,0 +1,3 @@
+[submodule "projects/100-exercises-to-learn-rust"]
+	path = projects/100-exercises-to-learn-rust
+	url = https://github.com/adrianstanea/100-exercises-to-learn-rust
