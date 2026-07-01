@@ -1,0 +1,144 @@
+[project]
+name = "code"
+version = "0.1.0"
+requires-python = ">=3.14"
+
+dependencies = ["pydantic>=2.13.4"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.19.1",
+    "pytest>=9.0.2",
+    "coverage>=7.8.2",
+    "ruff>=0.15.1",
+    "taskipy>=1.14.1",
+    "pre-commit>=4.2.0",
+]
+
+
+[tool.taskipy.tasks]
+# format = { cmd = "ruff format src tests", help = "Format code with ruff" }
+# format-check = { cmd = "ruff format --check src tests", help = "Check formatting" }
+# lint = { cmd = "ruff check src tests", help = "Run ruff linter" }
+# lint-fix = { cmd = "ruff check --fix src tests", help = "Lint with auto-fix" }
+# typecheck = { cmd = "mypy src", help = "Run mypy type checker" }
+
+# test = { cmd = "pytest -vv --tb=short", help = "Run all tests" }
+# coverage = { cmd = "coverage run -m pytest && coverage report", help = "Run tests with coverage" }
+
+# lint-all = { cmd = "task format-check && task lint && task typecheck", help = "Run all lint checks" }
+# check = { cmd = "task lint-all && task test", help = "Run all checks (lint + test)" }
+
+
+[tool.ruff]
+line-length = 100
+indent-width = 4
+target-version = "py313"
+src = ["src", "tests"]
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "__pycache__",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".mypy_cache",
+    "build",
+    "dist",
+    "*.egg-info",
+    "htmlcov",
+]
+
+[tool.ruff.lint]
+pydocstyle.convention = "google"
+fixable = ["ALL"]
+select = ["ALL"]
+ignore = [
+    # Missing docstring
+    "D101",
+    "D102",
+    "D103",
+    "D106",
+
+    "FA102",   # Flake8-future-annotations
+    "F401",    # Disable fix for unused imports
+    "B904",    # Allow raising exceptions without from e
+    "PLR0913", # Too many arguments
+    "CPY",     # Flake8-copyright
+    "T201",    # Debugging print statements
+    "ERA",     # Eradicate – detects commented-out code
+    "BLE001",  # Catch-all exceptions
+    "D100",    # Missing docstring in public module
+    "D105",    # Undocumented magic method
+    "D107",    # Undocumented public init
+    "D203",    # Incorrect blank line before class
+    "D205",    # Line between summary and description
+    "D212",    # Multi-line summary first line
+    "D400",    # Missing trailing period
+    "D407",    # Missing dashed underline after section
+    "S311",    # Random usage
+    "EM102",   # F-string exception
+    "TRY003",  # Long exception messages
+    "COM812",  # Conflicts with ruff formatter
+    "UP045",
+    "EM101",
+    "TC001",
+    "TC003",
+    "PLC0415", # Allow imports outside top-level for lazy loading
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ruff.lint.per-file-ignores]
+"**/__init__.py" = ["F403", "F405"]
+"**/*.py" = [
+    "B008",  # typer pattern: typer.Option/Argument calls in argument defaults
+    "FBT",   # typer pattern: bool parameters for flag arguments
+    "TC003", # Path must remain importable at runtime for typer annotation inspection
+]
+"**/tests/**/*.py" = [
+    "ANN",     # No type annotations required in tests
+    "PLC0415", # Import outside top-level
+    "PLR2004", # Magic values
+    "F841",    # Unused variable
+    "PT001",   # Use @pytest.fixture() over @pytest.fixture
+    "S101",    # Use of assert detected
+    "D101",    # Missing docstring in public class
+    "D102",    # Missing docstring in public method
+    "D103",    # Missing docstring in public function
+    "D104",    # Missing docstring in public package
+    "E741",    # Ambiguous variable name
+    "SLF001",  # Private member access allowed in tests
+    "E501",    # Long lines allowed in tests
+]
+
+
+[tool.mypy]
+files = ["src"]
+ignore_missing_imports = true
+disallow_untyped_defs = true
+disallow_any_unimported = false
+no_implicit_optional = true
+check_untyped_defs = true
+warn_return_any = false
+warn_unused_ignores = true
+show_error_codes = true
+allow_redefinition = true
+
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+omit = ["_*.py", "__*.py"]
+
+[tool.coverage.report]
+skip_empty = true
+show_missing = true
+fail_under = 65
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["--import-mode=importlib"]
